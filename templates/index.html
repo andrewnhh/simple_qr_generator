@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>QR Generator</title>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="left-side">
+            <h1>Simple </h1>
+            <h1>QR</h1>
+            <h1>Generator</h1>
+        </div>
+
+        <div class="form-input">
+            <form method="POST" action="http://127.0.0.1:5000/result">
+                <label for="text-input">Link or Text to Convert</label>
+                <input class="input-box" type="text" name="text-input" id="text-input" required placeholder="Insert Text Here">
+                <label for="filename-input">Insert Filename</label>
+                <input class="input-box" type="text" name="filename-input" id="filename-input"required placeholder="Insert Filename Here">
+                <button type="submit">Generate!</button>
+            </form>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>
