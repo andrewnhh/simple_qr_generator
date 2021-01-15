@@ -1,7 +1,6 @@
-from flask import Flask, request, render_template, url_for 
+from flask import Flask, request, render_template, url_for, send_file
 import qrcode
 from PIL import Image
-import os
 
 app = Flask(__name__)
 
@@ -14,7 +13,7 @@ def result():
     if request.method == "POST":
         input = request.form
         data = input["text-input"]
-        filename = input["filename-input"]
+        filename = str(input["filename-input"] + ".png")
 
         # Convert
         qr = qrcode.QRCode(
@@ -31,7 +30,7 @@ def result():
         # saving result
         img.save(filename)
 
-        return render_template('result.html', )
+        return send_file(filename, mimetype="image")
 
 
 if __name__ == "__main__":
